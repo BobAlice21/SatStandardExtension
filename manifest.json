@@ -3,7 +3,6 @@
   "name": "SatStandardExtension",
   "version": "0.1",
   "permissions": [
-    "webextensions",
     "*://*.coindesk.com/*"
   ],
   "content_scripts": [
@@ -13,3 +12,4 @@
     }
   ]
 }
+
