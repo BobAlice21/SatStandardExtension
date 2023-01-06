@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "SatStandardExtension",
   "version": "0.1",
-  "permissions": [
+  "host_permissions": [
     "https://api.coindesk.com/*"
   ],
   "content_scripts": [
