@@ -3,7 +3,7 @@
   "name": "SatStandardExtension",
   "version": "0.1",
   "permissions": [
-    "https://*.coindesk.com/*"
+    "https://api.coindesk.com/*"
   ],
   "content_scripts": [
     {
@@ -12,3 +12,4 @@
     }
   ]
 }
+
