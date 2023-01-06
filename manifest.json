@@ -1,12 +1,16 @@
 {
   "manifest_version": 2,
   "name": "SatStandardExtension",
-  "version": "0.1",
+  "version": "1.0",
   "permissions": [
     "webextensions",
-    "*://*.example.com/*"
+    "*://*.coindesk.com/*"
   ],
-  "background": {
-    "scripts": ["background.js"]
-  }
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["converter.js"]
+    }
+  ]
 }
+
