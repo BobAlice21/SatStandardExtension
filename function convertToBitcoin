@@ -1,3 +1,4 @@
+// Define a function that converts a currency amount to its equivalent value in bitcoin
 async function convertToBitcoin(amount, currency) {
   // Fetch the current bitcoin price in the specified currency
   const response = await fetch(`https://api.coindesk.com/v1/bpi/currentprice/${currency}.json`);
@@ -10,7 +11,28 @@ async function convertToBitcoin(amount, currency) {
   return amount / bitcoinPrice;
 }
 
-// Example usage: convert 50 EUR to bitcoin
-convertToBitcoin(50, "EUR").then(result => {
-  console.log(`50 EUR is equivalent to ${result} BTC`);
+// Inject a script into the webpage
+browser.tabs.executeScript({
+  code: `
+    // Find all elements on the page that contain currency amounts
+    const elements = document.querySelectorAll(".currency-amount");
+    
+    // Convert each currency amount to its equivalent value in bitcoin
+    for (const element of elements) {
+      // Extract the currency amount from the element's text content
+      const match = element.textContent.match(/\d+(?:\.\d+)?/);
+      if (match) {
+        const amount = parseFloat(match[0]);
+        
+        // Determine the currency of the amount based on the element's class name
+        const currency = element.className.match(/currency-(\w+)/)[1];
+        
+        // Convert the amount to bitcoin
+        convertToBitcoin(amount, currency).then(result => {
+          // Replace the original currency amount with the converted bitcoin amount
+          element.textContent = result + " BTC";
+        });
+      }
+    }
+  `
 });
