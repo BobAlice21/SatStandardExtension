@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "SatStandardExtension",
+  "version": "0.1",
+  "permissions": [
+    "webextensions",
+    "*://*.example.com/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
