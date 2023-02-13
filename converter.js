@@ -14,8 +14,10 @@ async function convertToBitcoin(amount, currency) {
 // Inject a script into the webpage
 browser.tabs.executeScript({
   code: `
-    // Find all elements on the page that contain currency amounts
-    const elements = document.querySelectorAll(".currency-amount");
+    // Find all elements on the page that contain currency amounts or prices
+    // const elements = document.querySelectorAll(".currency-amount");
+    const elements = document.querySelectorAll(".price");
+
     
     // Convert each currency amount to its equivalent value in bitcoin
     for (const element of elements) {
