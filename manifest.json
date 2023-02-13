@@ -1,15 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "SatStandardExtension",
+  "name": "Amazon Bitcoin Price Extension",
   "version": "0.1",
-  "host_permissions": [
-    "https://api.coindesk.com/*"
-  ],
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
-      "js": ["converter.js"]
+      "matches": ["https://www.amazon.com/*"],
+      "js": ["content_script.js"]
     }
+  ],
+  "permissions": [
+    "https://api.coindesk.com/*"
   ]
 }
 
