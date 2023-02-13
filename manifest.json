@@ -8,7 +8,7 @@
       "js": ["converter.js"]
     }
   ],
-  "permissions": [
+  "host_permissions": [
     "https://api.coindesk.com/*"
   ]
 }
